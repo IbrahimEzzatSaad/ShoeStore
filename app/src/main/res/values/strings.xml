@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="login_with_existing">Login with existing</string>
+    <string name="new_login">New Login</string>
+    <string name="welcome_to_our_shoestore">Welcome to our ShoeStore!</string>
+    <string name="email">Email</string>
+    <string name="EmailHint">yourEmail@company.com</string>
+    <string name="Password">Password</string>
+    <string name="PassHint">**********</string>
+    <string name="logo_store">Logo_Store</string>
+    <string name="instructions">1-We are not responsible for any damages that occur to the product after purchase. \n 2-Please make sure that your account information is not shared with any other companies </string>
+    <string name="welcome_message">We\'re glad you made it here! \n \n who are we? ShoeStore is the most famous online shop that you can find the best shoe that suit for your personality and make you shine like a diamond. \n \n Make sure to take advantage of our discounts this summer, and we hope you have a good time in our store!</string>
+    <string name="instruction">1-We are not responsible for any damages that occur to the product after purchase. \n \n2-Please make sure that your account information is not shared with any other companies. \n \n3-Please check the emails you receive to prevent fraud. \n \n4-If you have any problems with the product, please contact us within the product arrival period</string>
+    <string name="instructionTitle">Instruction!</string>
+    <string name="lets_start">Let\'s Start!</string>
+ 
+</resources>
