@@ -13,5 +13,16 @@
     <string name="instruction">1-We are not responsible for any damages that occur to the product after purchase. \n \n2-Please make sure that your account information is not shared with any other companies. \n \n3-Please check the emails you receive to prevent fraud. \n \n4-If you have any problems with the product, please contact us within the product arrival period</string>
     <string name="instructionTitle">Instruction!</string>
     <string name="lets_start">Let\'s Start!</string>
- 
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="name_hint">Casual Sneakers with Anklet Foot</string>
+    <string name="brand_hint">Generic</string>
+    <string name="size_hint">37</string>
+    <string name="description_hint">Women Casual Sneakers with Anklet Foot Gifts</string>
+    <string name="newshoe">NewShoe</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="description">Description</string>
+    <string name="shoe_size">Shoe Size</string>
+
 </resources>

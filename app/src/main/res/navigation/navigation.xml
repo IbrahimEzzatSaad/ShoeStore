@@ -44,12 +44,22 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.udacity.shoestore.screens.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_LoginFragment"
             app:destination="@id/LoginFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_homeFragment_to_newShoeFragment"
+            app:destination="@id/newShoeFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/newShoeFragment"
+        android:name="com.udacity.shoestore.screens.newshoe.NewShoeFragment"
+        android:label="NewShoeFragment"
+        tools:layout="@layout/fragment_new_shoe"/>
 
 </navigation>
