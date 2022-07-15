@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.InstructionFragment">
 
+    <!--ConstraintLayout was added to give floating button a guideline to stay under-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!--Unlike other screens we use LinearLayout here so we can inflate and add new views to it-->
             <LinearLayout
                 android:id="@+id/linear"
                 android:layout_width="match_parent"
@@ -28,11 +31,12 @@
             android:id="@+id/floatBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_baseline_add_24"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 

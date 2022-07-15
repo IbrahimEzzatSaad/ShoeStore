@@ -14,7 +14,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginFragmentBinding
 
 
-class LoginFragment : Fragment(), View.OnClickListener {
+class LoginFragment : Fragment() {
     lateinit var binding : LoginFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,16 +29,15 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         }
 
+
+        binding.NewLoginBtn.setOnClickListener { view:View ->
+
+            view.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+
+        }
         return binding.root
     }
 
-    override fun onClick(p0: View?) {
-        if (p0?.id == binding.NewLoginBtn.id || p0?.id == binding.ExistBtn.id) {
-            findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
-            Log.i("ELLO", "I been clicked")
-
-        }
-    }
 
 
 }

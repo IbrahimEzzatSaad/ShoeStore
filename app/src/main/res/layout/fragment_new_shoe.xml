@@ -5,9 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.InstructionFragment">
 
+    <data>
+
+        <variable
+            name="Shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/background">
 
 
@@ -48,10 +60,13 @@
             android:textSize="20sp"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/name_hint"
-            android:textColor="@color/transportWhite"
+            android:hint="@string/name_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/transportWhite"
             android:lines="1"
             android:labelFor="@id/ShoeName"
+            android:text="@={Shoe.name}"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ShoeName" />
@@ -83,9 +98,12 @@
             android:inputType="text"
             android:lines="1"
             android:minHeight="48dp"
-            android:text="@string/brand_hint"
-            android:textColor="@color/transportWhite"
+            android:hint="@string/brand_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/transportWhite"
             android:labelFor="@id/CompanyName"
+            android:text="@={Shoe.company}"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CompanyName" />
@@ -114,10 +132,13 @@
             android:textSize="20sp"
             android:inputType="number"
             android:minHeight="48dp"
-            android:text="@string/size_hint"
-            android:textColor="@color/transportWhite"
+            android:hint="@string/size_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/transportWhite"
             android:lines="1"
             android:labelFor="@id/ShoeSize"
+            android:text="@={Shoe.size}"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ShoeSize" />
@@ -146,19 +167,57 @@
             android:textSize="20sp"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/description_hint"
-            android:textColor="@color/transportWhite"
+            android:hint="@string/description_hint"
+            android:textColor="@color/white"
+            android:text="@={Shoe.description}"
+            android:textColorHint="@color/transportWhite"
             android:lines="1"
             android:labelFor="@id/Description"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Description" />
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/shoe_price"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionEditText" />
+
+        <EditText
+            android:id="@+id/PriceEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/price_hint"
+            android:inputType="number"
+            android:labelFor="@id/Price"
+            android:lines="1"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/transportWhite"
+            android:textSize="20sp"
+            android:text="@={Shoe.price}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Price" />
 
         <Button
             android:id="@+id/CancelBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
             android:background="@color/redpink"
@@ -167,13 +226,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/SaveBtn"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/PriceEditText" />
 
         <Button
             android:id="@+id/SaveBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
             android:background="@color/redpink"
@@ -182,7 +243,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/CancelBtn" />
+            app:layout_constraintStart_toEndOf="@+id/CancelBtn"
+            app:layout_constraintTop_toBottomOf="@id/PriceEditText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

@@ -24,5 +24,7 @@
     <string name="company">Company</string>
     <string name="description">Description</string>
     <string name="shoe_size">Shoe Size</string>
+    <string name="shoe_price">Shoe Price</string>
+    <string name="price_hint">150$</string>
 
 </resources>

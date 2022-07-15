@@ -5,48 +5,40 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentHomeBinding
-import com.udacity.shoestore.viewmodel.MyViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.shoeitem.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentHomeBinding
 import com.udacity.shoestore.databinding.ShoeitemBinding
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.viewmodel.MyViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class HomeFragment : Fragment() {
 
     private val sharedViewModel: MyViewModel by activityViewModels()
-
     private lateinit var bind : FragmentHomeBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         bind = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,R.layout.fragment_home,container,false)
 
 
-        val view = inflater.inflate(R.layout.shoeitem, bind.linear)
-        view.Name.text = "its a shoe"
-        var view2 = inflater.inflate(R.layout.shoeitem, bind.linear)
-        var view3 = inflater.inflate(R.layout.shoeitem, bind.linear)
-        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).toolbar.inflateMenu(R.menu.right_menu)
 
-        // calling the action bar
-        var actionBar = (activity as AppCompatActivity).supportActionBar
-
-        // disabling the back button in action bar
-        actionBar?.setDisplayHomeAsUpEnabled(false)
-
-        showList()
 
 
         bind.floatBtn.setOnClickListener{ view :View ->
 
+            view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToNewShoeFragment())
 
         }
+        setHasOptionsMenu(true)
+        showList()
 
         return bind.root
     }
@@ -60,13 +52,19 @@ class HomeFragment : Fragment() {
                 val shoeitem = ShoeitemBinding.inflate(LayoutInflater.from(requireContext()), bind.linear, false)
                 shoeitem.apply {
                     Name.text = shoe.name
-                    description.text = shoe.description
+
+                    description.text = if(shoe.description.isEmpty()){ "Made By: ${shoe.company}" } else {
+                        shoe.description
+                    }
+
                     Price.text = "${shoe.price}$"
                 }
 
                 bind.linear.addView(shoeitem.root)
             }
         })
+
+
      }
 
 
@@ -76,10 +74,8 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) : Boolean{
-
-        view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment())
-
-        return true
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 
 }
